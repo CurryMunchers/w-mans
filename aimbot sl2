@@ -11,7 +11,7 @@ getgenv().PredictionVelocity = 10 -- The speed of the PredictMovement feature
 
 getgenv().UniversalAimbotLoadingTime = tick()
 if UniversalAimbotLoaded == true then
-    Notify("SpiritHub", "Script Loaded Already", "", 3)
+    Notify("Spirit", "Script Loaded Already", "", 3)
     return 
 end
 
@@ -118,7 +118,7 @@ end
         if getgenv().TeamCheck == true then
             if #workspace.Teams:GetChildren() == 0 then 
                 getgenv().TeamCheck = false 
-                SeparateNotify("SpiritHub", "TeamCheck set to: "..tostring(getgenv().TeamCheck).." because there are no teams!", "", 3)
+                SeparateNotify("Spirit", "TeamCheck set to: "..tostring(getgenv().TeamCheck).." because there are no teams!", "", 3)
             end
         end
     end
@@ -164,13 +164,13 @@ Uis.InputBegan:Connect(function(Key)
                 local Target;Target = GetNearestTarget()
                 if Target ~= nil then 
                     AimlockTarget = Target
-                    Notify("SpiritHub", "Aimlock Target: "..tostring(AimlockTarget), "", 3)
+                    Notify("Spirit", "Aimlock Target: "..tostring(AimlockTarget), "", 3)
                 end
             end)
         end
         if Key.KeyCode == Enum.KeyCode[AimlockToggleKey] then 
             Aimlock = not Aimlock
-            Notify("SpiritHub", "Aimlock: "..tostring(Aimlock), "", 3)
+            Notify("Spirit", "Aimlock: "..tostring(Aimlock), "", 3)
         end
     end
 end)
@@ -222,4 +222,4 @@ RService.RenderStepped:Connect(function()
     end
 end)
 
-SeparateNotify("SpiritHub", "Universal Aimbot loaded in: "..string.format("%.7f", tostring(tick() - UniversalAimbotLoadingTime)), "", 3)
+SeparateNotify("Spirit", "Universal Aimbot loaded in: "..string.format("%.7f", tostring(tick() - UniversalAimbotLoadingTime)), "", 3)
